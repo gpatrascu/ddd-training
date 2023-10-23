@@ -14,9 +14,11 @@ public class Cart
 public class Product
 {
     private readonly string _productName;
+    private readonly string _barcode;
 
-    public Product(string productName)
+    public Product(string productName, string barcode)
     {
         _productName = productName;
+        _barcode = barcode;
     }
 }
