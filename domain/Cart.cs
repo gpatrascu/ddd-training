@@ -1,14 +1,26 @@
 ﻿namespace domain;
 public class Cart
 {
-    private List<Product> products = new List<Product>();
+    private List<CartLine> lines = new List<CartLine>();
     
-    public void Add(Product product)
+    public void Add(Product product, int quantity = 1)
     {
-        this.Products.Add(product);
+        this.lines.Add(new CartLine(product, quantity));
     }
 
-    public IList<Product> Products => products.AsReadOnly();
+    public IList<CartLine> Lines => lines.AsReadOnly();
+}
+
+public class CartLine
+{
+    public Product Product { get; }
+    public int Quantity { get; }
+
+    public CartLine(Product product, int quantity)
+    {
+        Product = product;
+        Quantity = quantity;
+    }
 }
 
 public class Product
